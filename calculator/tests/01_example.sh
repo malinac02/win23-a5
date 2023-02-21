@@ -43,3 +43,9 @@ if [[ $($CALCULATOR 9 / 3) -ne 3 ]]; then  # If the output of the program is not
   echo 'ERROR! A vaid run of the calculator (9 / 3) failed to produce 3 as an output!'
   exit 1
 fi
+
+# Test 06:
+if ! $CALCULATOR 2 - 10; then  # If the return code is non-zero (i.e. error)...
+  echo 'ERROR! A valid run of the calculator (2 - 10) failed!'
+  exit 1
+fi

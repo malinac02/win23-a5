@@ -12,16 +12,16 @@ echo "To end a test early as a success, you should use the exit 0 command."
 echo "Invoke your program with the \$CALCULATOR variable; an example is below"
 
 
-# Test 02: Ensure simple case has correct output...
-if [[ $($CALCULATOR 1 + 1) -ne 2 ]]; then  # If the output of the program is not 2...
-  echo 'ERROR! A valid run of the calculator (1 + 1) failed to produce 2 as an output!'
+# Test 01: Ensure the program runs without error with a simple, valid invocation.
+if ! $CALCULATOR 1 + 1; then  # If the return code of $PROGRAM is non-zero (i.e. error)...
+  echo 'ERROR! A valid run of the calculator (1 + 1) failed!'
   exit 1
 fi
 
 
-# Test 01: Ensure the program runs without error with a simple, valid invocation.
-if ! $CALCULATOR 1 + 1; then  # If the return code of $PROGRAM is non-zero (i.e. error)...
-  echo 'ERROR! A valid run of the calculator (1 + 1) failed!'
+# Test 02: Ensure simple case has correct output...
+if [[ $($CALCULATOR 1 + 1) -ne 2 ]]; then  # If the output of the program is not 2...
+  echo 'ERROR! A valid run of the calculator (1 + 1) failed to produce 2 as an output!'
   exit 1
 fi
 

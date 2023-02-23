@@ -32,20 +32,20 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
   exit 1
 fi
 
-# Test 04:
-if $CALCULATOR 3 + 2; then
-  echo 'SUCCESS! (3 + 2) should exit with status 0'
-  exit 0
-fi
-
-# Test 05:
-if [[ $($CALCULATOR 9 / 3) -ne 3 ]]; then  # If the output of the program is not 3..
-  echo 'ERROR! A vaid run of the calculator (9 / 3) failed to produce 3 as an output!'
+# Test 04: Ensure multiplication has correct output
+if [[ $($CALCULATOR 3 * 4) -ne 12 ]]; then  # If the output is not 12
+  echo 'ERROR! A valid run of the calculator (3 * 4) failed to produce 12!'
   exit 1
 fi
 
-# Test 06:
-if ! $CALCULATOR 2 - 10; then  # If the return code is non-zero (i.e. error)...
-  echo 'ERROR! A valid run of the calculator (2 - 10) failed!'
+# Test 05: Ensure division has correct output
+if [[ $($CALCULATOR 9 / 3) -ne 3 ]]; then  # If the output is not 3
+  echo 'ERROR! A valid run of the calculator (9 / 3) failed to produce 3!'
+  exit 1
+fi
+
+# Test 06: Ensure subtraction has correct output
+if [[ $($CALCULATOR 2 - 10) -ne -8 ]]; then  # If the output is not -8
+  echo 'ERROR! A valid run of the calculator (2 - 10) failed to produce -8!'
   exit 1
 fi

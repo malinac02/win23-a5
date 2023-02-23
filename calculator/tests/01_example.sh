@@ -33,7 +33,7 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
 fi
 
 # Test 04: Ensure multiplication has correct output
-if [[ $($CALCULATOR 3 * 4) -ne 12 ]]; then  # If the output is not 12
+if [[ noglob $($CALCULATOR 3 * 4) -ne 12 ]]; then  # If the output is not 12
   echo 'ERROR! A valid run of the calculator (3 * 4) failed to produce 12!'
   exit 1
 fi
